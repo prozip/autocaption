@@ -36,7 +36,7 @@ python3 autocap.py -f video_file -t token [-o output_file]
 
 Script Workflow:  Video &#8594;  Audio &#8594; Text
 
-1. ##### Video &#8594; Audio
+1. #### Video &#8594; Audio
 
    Using *moviepy* library to convert most of the video format.
 
@@ -47,7 +47,7 @@ Script Workflow:  Video &#8594;  Audio &#8594; Text
 
    
 
-2. ##### Audio &#8594;Text
+2. #### Audio &#8594;Text
 
    Using *[AssemblyAI](https://app.assemblyai.com/login/)* as speech_recognizer API
 
