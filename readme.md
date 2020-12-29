@@ -86,7 +86,7 @@ Script Workflow:  Video &#8594;  Audio &#8594; Text
 
      
 
-   - Export transcript to .**srt **
+   - Export transcript to srt (SubRip *Subtitle*) file 
 
      ```python
      endpoint = "https://api.assemblyai.com/v2/transcript/" + tranScript_ID + "/srt"
