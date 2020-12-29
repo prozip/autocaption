@@ -1,12 +1,40 @@
 ## Auto-generate video caption
 
 
-With speech to text API, Google only allows 10 MB / audio file. You can split your audio and use google API, but the transcript is received very badly. 
+This script generate full quality video caption for any video format.  Using cloud API, it does not require so much hardware. 
+
+### *Why ?*
+
+With speech to text API, Google only allows 10 MB / audio file. You can split your audio and use google API, but the transcript received very badly. 
 So I use assemblyAI which has a limited length per month instead of size per file (still better).
 
+
+
+## Requirement:
+
+- python3 *moviepy* library
+
+  ```bash
+  pip install moviepy
+  ```
+
+  
+
+- [AssemblyAI](https://app.assemblyai.com/login/) API token (free account) 
+
+
+
+## Usage
+
+```
+python3 autocap.py -f video_file -t token [-o output_file]
+```
+
+
+
+## How it works
+
 Script Workflow:  Video &#8594;  Audio &#8594; Text
-
-
 
 1. ##### Video &#8594; Audio
 
@@ -15,9 +43,6 @@ Script Workflow:  Video &#8594;  Audio &#8594; Text
    ```python
    clip = mp.VideoFileClip(sourceVideoPath)
    clip.audio.write_audiofile(convertVideoPath)
-   
-   r = sr.Recognizer()
-   audio = sr.AudioFile(convertVideoPath)
    ```
 
    
@@ -61,17 +86,13 @@ Script Workflow:  Video &#8594;  Audio &#8594; Text
 
      
 
-   - Export transcript to .**Str** 
+   - Export transcript to .**srt **
 
      ```python
-     endpoint = "https://api.assemblyai.com/v2/transcript/" + tranScript_ID
+     endpoint = "https://api.assemblyai.com/v2/transcript/" + tranScript_ID + "/srt"
      headers = {
          "authorization": API_token,
      }
      response = requests.get(endpoint, headers=headers)
      return response.content.decode('utf-8')
      ```
-
-     
-
-   
