@@ -1,5 +1,6 @@
 import requests
 
+
 def check(transcriptID, API_token):
     endpoint = "https://api.assemblyai.com/v2/transcript/" + transcriptID
 
